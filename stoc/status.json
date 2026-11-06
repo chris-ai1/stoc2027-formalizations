@@ -116,11 +116,11 @@
     {
       "id": 733,
       "coverage": "partial",
-      "scope": "Correlation, spectrum, hardness and counting; streaming dissection correctness; native decision, counters, balance, quarter construction, inverse bucket queries and full-state hit recovery.",
-      "remaining": "Full class iterator, dictionary allocation/reuse and integrated global decision/witness runtime and peak-space proofs remain open, alongside other resource refinements and repaired ideal-model bounds. Source-error witnesses do not refute Theorem 8.",
+      "scope": "Correlation, spectrum, hardness and counting; native counters, balance, quarters, hit recovery and sparse dictionary retention/lookup/release with memory restoration reviewed.",
+      "remaining": "Integrated class iterator, global decision/witness runtime and peak space, source bit-model realization and other main-result gaps remain open.",
       "pr": 2529,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2529#pullrequestreview-5798898675",
-      "reviewed_sha": "4d578733628a41dfc7f550f80725960b87de3c4a",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2529#pullrequestreview-5799327115",
+      "reviewed_sha": "a65dc51343f5b1b76938bc964125800f668e902a",
       "source_prefixes": [
         "Complexity/Cryptanalysis/AddXNOR",
         "Complexity/DataStructure/BinaryTrie.lean",
@@ -131,11 +131,11 @@
     {
       "id": 191,
       "coverage": "partial",
-      "scope": "Policy–LP frontier, two-schedule optimum, Proposition 1, binary-input FPTAS and Theorem 3 independently reviewed; partial Theorem 4 local dual certificates, conditional-risk bounds and repetition thresholds reviewed.",
-      "remaining": "Theorem 4 greedy approximation, resource and hardness claims, plus Theorems 5–6, remain open. Full hosted validation remains required.",
+      "scope": "Policy–LP frontier, FPTAS, Theorem 3 and partial-cover dual/risk bounds; actual greedy selection, termination and harmonic/logarithmic risk comparison independently reviewed.",
+      "remaining": "Theorem 4 native resources, execution and hardness, plus Theorems 5–6 remain open. Full hosted validation remains required.",
       "pr": 2530,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#issuecomment-6683140662",
-      "reviewed_sha": "4bd2d1e4a91cbf7d4334872fae740dcc9c0b1f03",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#issuecomment-6683540785",
+      "reviewed_sha": "68803d339637211f0231c6ec0105de5a61eb241c",
       "source_prefixes": [
         "Complexity/Probability/StochasticOracle/",
         "Complexity/Algorithms/Lean/Submodular/OracleSavings.lean",
@@ -174,11 +174,11 @@
     {
       "id": 1575,
       "coverage": "partial",
-      "scope": "Rank-derived counting reduction, VC-one representation, closure listing, functional elimination/query assembly and binary-certified square Cramer solver with coefficient bounds independently reviewed.",
-      "remaining": "General rectangular elimination and end-to-end encoded polynomial runtime remain incomplete, alongside sharper counting runtime and bounded-demand/graph endpoints.",
+      "scope": "Counting reduction, VC-one representation, closure listing, functional query assembly and square/rectangular binary solvers with computed rank and coefficient bounds independently reviewed.",
+      "remaining": "Full closure/equation/branch/two-query runtime composition, sharper counting runtime and bounded-demand/graph endpoints remain incomplete.",
       "pr": 2532,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#pullrequestreview-5799227496",
-      "reviewed_sha": "2064154961439400ba7065227fa9cf57b8a03bbe",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#pullrequestreview-5799516613",
+      "reviewed_sha": "829c47e822d7887f010442d4a64108a90656c217",
       "source_prefixes": [
         "Complexity/Logics/Propositional/CNF/TwoBoundary.lean",
         "Complexity/Foundations/LinearAlgebra/RowSelection.lean",
