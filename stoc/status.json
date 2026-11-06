@@ -174,11 +174,11 @@
     {
       "id": 1575,
       "coverage": "partial",
-      "scope": "Rank-derived counting reduction, VC-one representation, executable closure listing, functional elimination and two-query assembly independently reviewed.",
-      "remaining": "Encoded polynomial-time certification, coefficient-growth bounds, sharper runtime and bounded-demand/graph endpoints remain open. Functional correctness does not establish these resource claims.",
+      "scope": "Rank-derived counting reduction, VC-one representation, closure listing, functional elimination/query assembly and binary-certified square Cramer solver with coefficient bounds independently reviewed.",
+      "remaining": "General rectangular elimination and end-to-end encoded polynomial runtime remain incomplete, alongside sharper counting runtime and bounded-demand/graph endpoints.",
       "pr": 2532,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#pullrequestreview-5799015394",
-      "reviewed_sha": "72a62b73200c427f56dd93a306243946a62a4184",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#pullrequestreview-5799227496",
+      "reviewed_sha": "2064154961439400ba7065227fa9cf57b8a03bbe",
       "source_prefixes": [
         "Complexity/Logics/Propositional/CNF/TwoBoundary.lean",
         "Complexity/Foundations/LinearAlgebra/RowSelection.lean",
