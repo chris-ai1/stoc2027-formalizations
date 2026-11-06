@@ -131,11 +131,11 @@
     {
       "id": 191,
       "coverage": "partial",
-      "scope": "Policy–LP frontier, two-schedule optimum, Proposition 1, global savings approximation and native component certificates.",
-      "remaining": "Uniform binary-runtime composition for full FPTAS and Theorems 3–6 remain open.",
+      "scope": "Policy–LP frontier, two-schedule optimum, Proposition 1 and Theorem 2(2)’s uniform binary-input FPTAS, including global savings approximation, deadline and maximum-success guarantees.",
+      "remaining": "Theorems 3–6 (hardness/pseudopolynomial optimization, partial-cover, adaptive bounds and adaptivity ratio) remain open. Full hosted validation is required.",
       "pr": 2530,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#pullrequestreview-5797531448",
-      "reviewed_sha": "e500e96a0e311b7de13db140e7d533f459c769ea",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#pullrequestreview-5798312259",
+      "reviewed_sha": "c55c1112bd392d2a2fd5a1185b7925b8cc20d532",
       "source_prefixes": [
         "Complexity/Probability/StochasticOracle/",
         "Complexity/Algorithms/Lean/Submodular/OracleSavings.lean",
