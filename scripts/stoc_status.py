@@ -124,9 +124,6 @@ def source_count(sha, prefixes):
 def observe(pr_number):
     pr = api(f'repos/{REPO}/pulls/{pr_number}')
     sha = pr['head']['sha']
-    # Fetch into the object database, without checking out or changing a branch/index.
-    subprocess.run(['git', '-C', str(UPSTREAM), 'fetch', '--depth=1', '--no-tags', '--no-write-fetch-head',
-                    'origin', sha], check=True, stdout=subprocess.DEVNULL)
     runs = api(f'repos/{REPO}/commits/{sha}/check-runs?per_page=100')
     statuses = api(f'repos/{REPO}/commits/{sha}/status?per_page=100')
     if runs.get('total_count', 0) > 100 or len(statuses.get('statuses', [])) >= 100:
@@ -153,13 +150,18 @@ def build(output, live=False):
     if live:
         for number in sorted({p['pr'] for p in registry['papers']}):
             observations[number] = observe(number)  # Failure aborts; never silently publish stale facts.
+    if live:
+        revisions = {p['reviewed_sha'] for p in registry['papers']}
+        revisions.update(p['head'] for p in observations.values())
+        # One fetch avoids overlapping shallow-boundary rewrites across related PR stacks.
+        subprocess.run(['git', '-C', str(UPSTREAM), '-c', 'gc.auto=0', 'fetch',
+                        '--depth=1', '--no-auto-maintenance', '--no-tags', '--no-write-fetch-head',
+                        'origin', *sorted(revisions)], check=True, stdout=subprocess.DEVNULL)
     tracked = {}
     for record in registry['papers']:
         record = dict(record)
         pr = observations.get(record['pr'])
         sha = pr['head'] if pr else record['reviewed_sha']
-        if live:
-            subprocess.run(['git', '-C', str(UPSTREAM), 'fetch', '--depth=1', '--no-tags', '--no-write-fetch-head', 'origin', record['reviewed_sha']], check=True, stdout=subprocess.DEVNULL)
         record['resources'] = resources_for(record['id'], resources)
         record['source'] = source_count(sha, record['source_prefixes'])
         record['pr_observation'] = pr
