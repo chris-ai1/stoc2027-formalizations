@@ -4,11 +4,18 @@ A separate, source-grounded tracker for the optional Complexitylib formalization
 Published at **https://chris-ai1.github.io/stoc2027-formalizations/**.
 These are submissions, not confirmed acceptances. The dashboard does not change Complexitylib's website.
 
-Search all 1,665 submissions by title, author, topic or ID. Tracked papers expose scoped coverage,
+All 1,665 submissions appear by default in a compact boxed table and a clickable overview map.
+Click a submission box, ID, title or row to zoom into its paper and theorem explorer.
+Search by title, author, topic or ID. Tracked papers expose scoped coverage,
 remaining claims, primary PDF links, independent review evidence, PR state and reported checks.
 The theorem explorer indexes actual theorem/lemma declarations with immutable GitHub source-line
 links and statement excerpts. Supporting lemmas are not classified as main results automatically.
 Newer PR revisions do not inherit a previous whole-head review automatically.
+
+Each paper has a four-stage workflow bar: assessed, proof recorded, independent main-coverage
+approval, and merged. These bars are milestones, not estimated fractions of mathematical work.
+The overall progress bar counts main-coverage approvals out of all catalogue submissions,
+including those not yet assessed. Filters do not change this overall denominator.
 
 ## Updates
 

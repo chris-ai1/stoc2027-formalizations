@@ -6,42 +6,49 @@ let papers = [], limit = 30;
 let dashboard;
 function node(tag, text, cls) { const el = document.createElement(tag); if(text !== undefined) el.textContent = text; if(cls) el.className = cls; return el; }
 function link(text, url) { const a = node('a', text); a.href = url; return a; }
+function workflow(p) {
+  if(p.coverage === 'not-assessed') return {value:0,label:'Not assessed'};
+  if(p.coverage === 'existing') return {value:1,label:'Existing work recorded'};
+  if(p.coverage === 'main-results') return p.pr_observation?.state === 'merged' ? {value:4,label:'Main coverage approved · merged'} : {value:3,label:'Main coverage approved · integration pending'};
+  return {value:2,label:p.coverage === 'obstruction' ? 'Proof recorded · claim obstruction' : 'Proof recorded · main coverage incomplete'};
+}
+function progressBar(value,max,label) {
+  const box=node('div',undefined,'progress-box');
+  const bar=node('progress');bar.max=max;bar.value=value;bar.setAttribute('aria-label',label);
+  box.append(bar,node('span',label,'progress-label'));return box;
+}
+function overview() {
+  const approved=papers.filter(p=>p.coverage==='main-results').length;
+  $('overall-progress').append(progressBar(approved,papers.length,`${approved} / ${papers.length.toLocaleString()} submissions with independently approved main coverage (${(100*approved/papers.length).toFixed(2)}%)`));
+  const fragment=document.createDocumentFragment();
+  for(const p of papers){const box=node('button',String(p.id),`submission-box ${p.coverage}`);box.type='button';box.title=`Submission ${p.id}: ${p.title} — ${labels[p.coverage]}`;box.setAttribute('aria-label',box.title);box.addEventListener('click',()=>openPaper(p));fragment.append(box);}
+  $('submission-map').append(fragment);
+}
 function render() {
   const term = $('search').value.trim().toLocaleLowerCase(), filter = $('coverage').value;
   let matches = papers.filter(p => (filter === 'all' || (filter === 'tracked' ? p.coverage !== 'not-assessed' : p.coverage === filter)) && `${p.id} ${p.title} ${p.authors} ${p.area}`.toLocaleLowerCase().includes(term));
-  const order = $('sort').value;
-  matches.sort((a,b) => order === 'title' ? a.title.localeCompare(b.title) : order === 'lines' ? (b.source?.lines ?? -1) - (a.source?.lines ?? -1) || a.id-b.id : a.id-b.id);
-  $('papers').replaceChildren();
-  for (const p of matches.slice(0,limit)) {
-    const row = node('article',undefined,'paper'); row.id = `submission-${p.id}`;
-    const number = node('div','SUBMISSION','number'); number.append(node('strong',String(p.id)));
-    const body = node('div'); body.append(node('span', labels[p.coverage],`badge ${p.coverage}`),node('h3',p.title),node('p',p.authors,'authors'),node('span',p.area,'area'));
-    if(p.scope) body.append(node('p',p.scope,'scope'),node('p',`Limits / remaining: ${p.remaining}`,'remaining'));
-    const links = node('div',undefined,'links'); links.append(link('Paper ↗',p.paper_url));
-    if(p.pr) links.append(link(`PR ${p.pr} ↗`,`https://github.com/cslib-community/complexitylib/pull/${p.pr}`),link('Independent review ↗',p.review_url));
-    if(p.source) {
-      const explore=node('button',`Explore ${p.source.results.length.toLocaleString()} theorem declarations`,'explore-button');
-      explore.type='button';explore.addEventListener('click',()=>openPaper(p));links.append(explore);
-    }
-    body.append(links);
-    const facts = node('div',undefined,'facts');
-    if(p.source) {
-      const count=node('p'); count.append(node('strong',p.source.lines.toLocaleString()),document.createTextNode(' library lines')); facts.append(count,node('p',`${p.source.files} scoped files · tests excluded`));
-      const rev=node('p','Counted revision '); rev.append(link(p.source.revision.slice(0,7),`https://github.com/cslib-community/complexitylib/commit/${p.source.revision}`)); facts.append(rev);
-      const review=node('p',`Review at ${p.reviewed_sha.slice(0,7)}${p.review_is_current_head ? ' · current PR head' : ' · scoped historical evidence'}`,'revision');facts.append(review);
-      const detail=node('details');detail.append(node('summary','Counted source files'));const ul=node('ul');for(const path of p.source.paths){const li=node('li');li.append(link(path.replace('Complexity/',''),`https://github.com/cslib-community/complexitylib/blob/${p.source.revision}/${path}`));ul.append(li);}detail.append(ul);body.append(detail);
-    }
-    if(p.pr_observation){const pr=p.pr_observation;facts.append(node('p',`PR ${pr.state}${pr.draft ? ' · draft' : ''}`),link(`CI: ${pr.checks} ↗`,pr.checks_url));}else if(p.pr){facts.append(node('p','GitHub checks not refreshed in this offline snapshot.'));}
-    row.append(number,body,facts);$('papers').append(row);
+  const order=$('sort').value;
+  matches.sort((a,b)=>order==='title'?a.title.localeCompare(b.title):order==='lines'?(b.source?.lines??-1)-(a.source?.lines??-1)||a.id-b.id:a.id-b.id);
+  const fragment=document.createDocumentFragment();
+  for(const p of matches){
+    const row=node('tr',undefined,'paper-row');row.id=`submission-${p.id}`;
+    row.addEventListener('click',event=>{if(!event.target.closest('a,button'))openPaper(p);});
+    const number=node('td');const zoom=node('button',String(p.id),'paper-id');zoom.type='button';zoom.setAttribute('aria-label',`Explore submission ${p.id}`);zoom.addEventListener('click',()=>openPaper(p));number.append(zoom);
+    const title=node('td');const name=node('button',p.title,'paper-title');name.type='button';name.addEventListener('click',()=>openPaper(p));title.append(name,node('div',p.authors,'authors'),node('div',p.area,'area'));
+    const status=node('td');status.append(node('span',labels[p.coverage],`badge ${p.coverage}`));
+    if(p.pr_observation)status.append(node('div',`CI: ${p.pr_observation.checks}`,'cell-note'));
+    const prog=node('td');const stage=workflow(p);prog.append(progressBar(stage.value,4,`${stage.value}/4 workflow milestones`),node('div',stage.label,'cell-note'));
+    const lines=node('td',p.source?p.source.lines.toLocaleString():'—','numeric');if(p.source)lines.append(node('div',`${p.source.files} files`,'cell-note'));
+    const resource=node('td');resource.append(node('div',`Time: ${duration(p.resources?.recorded_seconds)}`),node('div',`Tokens: ${p.resources?.tokens==null?'unknown':p.resources.tokens.toLocaleString()}`,'cell-note'));
+    const links=node('td',undefined,'table-links');links.append(link('PDF ↗',p.paper_url));if(p.pr)links.append(link(`PR ${p.pr} ↗`,`https://github.com/cslib-community/complexitylib/pull/${p.pr}`));
+    row.append(number,title,status,prog,lines,resource,links);fragment.append(row);
   }
-  $('results').textContent = `${matches.length.toLocaleString()} matching submissions · showing ${Math.min(limit,matches.length).toLocaleString()}`;
-  if (!matches.length) $('papers').append(node('p','No matching submissions. Try another search or choose all submissions.'));
-  $('more').hidden = matches.length <= limit;
+  $('papers').replaceChildren(fragment);
+  $('results').textContent=`${matches.length.toLocaleString()} matching submissions · all matching rows shown · click a box, ID or title to explore`;
 }
-for(const id of ['search','coverage','sort']) $(id).addEventListener(id === 'search' ? 'input' : 'change',()=>{limit=30;render();});
-$('more').addEventListener('click',()=>{limit+=50;render();});
+for(const id of ['search','coverage','sort'])$(id).addEventListener(id==='search'?'input':'change',render);
 fetch('data.json').then(r=>{if(!r.ok)throw new Error(`Snapshot HTTP ${r.status}`);return r.json();}).then(data=>{
-  dashboard=data;papers=data.papers;renderResources(data);
+  dashboard=data;papers=data.papers;renderResources(data);overview();
   const counts=[['Catalogue submissions',papers.length],['Main coverage approved',papers.filter(p=>p.coverage==='main-results').length],['Partial formalizations',papers.filter(p=>p.coverage==='partial').length],['Claim obstructions',papers.filter(p=>p.coverage==='obstruction').length]];
   for(const [name,value] of counts){const stat=node('div',undefined,'stat');stat.append(node('strong',value.toLocaleString()),node('span',name));$('summary').append(stat);}
   $('freshness').textContent=`Snapshot ${new Date(data.generated_at).toLocaleString()} · coverage record ${data.registry_updated}${data.github_observed ? '' : ' · offline build'}`;
@@ -60,13 +67,15 @@ function renderResources(data) {
 }
 function openPaper(p) {
   const container=$('paper-detail');container.replaceChildren();
-  container.append(node('div',`SUBMISSION ${p.id}`,'eyebrow'),node('h2',p.title),node('p',p.authors),link('Read the paper PDF ↗',p.paper_url),node('p',p.scope),node('p',`Remaining / limitations: ${p.remaining}`,'remaining'));
+  container.append(node('div',`SUBMISSION ${p.id}`,'eyebrow'),node('h2',p.title),node('p',p.authors),link('Read the paper PDF ↗',p.paper_url),node('p',p.scope || 'This submission has not yet been assessed in this tracker.'),node('p',p.remaining ? `Remaining / limitations: ${p.remaining}` : 'No formalization status is recorded. This does not establish that no formalization exists elsewhere.','remaining'));
+  const stage=workflow(p);container.append(progressBar(stage.value,4,`${stage.value}/4 workflow milestones · ${stage.label}`));
   const res=p.resources;
   if(res) {
     const ledger=node('section',undefined,'ledger');ledger.append(node('h3','Resource ledger'),node('p',`Recorded task wall time: ${duration(res.recorded_seconds)} across ${res.recorded_tasks} recorded tasks.`),node('p',`Measured tokens: ${res.tokens == null ? 'Unknown' : res.tokens.toLocaleString()} · ${res.token_coverage}.`),node('p',`Time budget: ${res.budget.time_hours == null ? 'not set' : `${res.budget.time_hours} h`}. Token budget: ${res.budget.tokens == null ? 'not set' : res.budget.tokens.toLocaleString()}.`));
     for(const event of res.measurements){ledger.append(node('p',`${event.label}: ${event.started_at} → ${event.finished_at}. Tokens: ${event.total_tokens == null ? 'unknown' : event.total_tokens}.`));}
     container.append(ledger);
   }
+  if(!p.source){container.append(node('p','No theorem declarations are indexed for this paper yet.'));$('paper-dialog').showModal();return;}
   container.append(node('h3','Theorem explorer'),node('p','Declarations extracted from the explicitly scoped source files, including supporting lemmas. This index is not a list of independently classified main results. Links point to the exact counted revision. Full Lean statements and proofs are authoritative.','result-note'));
   const input=node('input');input.type='search';input.placeholder='Search theorem name, statement or source path';input.setAttribute('aria-label','Search formalized theorems');input.className='detail-controls';container.append(input);
   const results=node('div');container.append(results);let shown=25;
