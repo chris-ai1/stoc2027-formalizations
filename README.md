@@ -78,4 +78,4 @@ and evidence index; the linked Lean sources, primary papers and review records a
 
 ## Counterexample note
 
-`stoc/writeups/submission-1234-counterexample.pdf` documents the reverse-protocol privacy counterexample with exact tables, probabilities and an immutable Lean theorem link. Regenerate with `python3 scripts/build_counterexample_pdf.py` after installing ReportLab (`reportlab==5.1.0`). The checked-in PDF is copied into the published site; ordinary dashboard builds need no PDF dependency.
+`stoc/writeups/submission-1234-counterexample.pdf` documents the reverse-protocol privacy counterexample with exact tables, probabilities and an immutable Lean theorem link. The authoritative source is the adjacent `.tex` file. Regenerate with `python3 scripts/build_counterexample_pdf.py` using Tectonic 0.17.0 (or pass `--tectonic /path/to/tectonic`). The checked-in PDF is copied into the published site; ordinary dashboard builds need no PDF dependency.

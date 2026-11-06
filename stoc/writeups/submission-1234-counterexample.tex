@@ -1,0 +1,83 @@
+% Copyright (c) 2026 Christian Reitwiessner. Apache-2.0.
+% Authors: Christian Reitwiessner.
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=23mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,pdftitle={A public-message privacy counterexample: STOC submission 1234},pdfauthor={Christian Reitwiessner}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\newcommand{\Prb}{\mathop{\mathrm{Pr}}}
+\title{A public-message privacy counterexample\\\large STOC submission 1234: the reverse Tetrahedral protocol}
+\author{Christian Reitwiessner}
+\date{6 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+The reverse protocol in Theorem 5.1 of Donald Beaver's \emph{Correlated Group Interactions: Founding Cryptography on $S_4$ and $S_n$} leaks information about Alice's hand through its public message. Six equiprobable cases suffice to exhibit the failure. This note gives the exact calculation and its correspondence to a checked Lean theorem.
+\end{abstract}
+\section{Experiment and privacy requirement}
+The source is Theorem 5.1, PDF page 5, Figures 9 and 10 of \href{https://github.com/sigact-stoc/stoc2027/releases/download/papers-2/1234.pdf}{the submission manuscript}. Alice chooses an ordered pair $A=(a,b)$ of distinct cards from $\{0,1,2,3\}$ uniformly among the twelve possibilities. She publishes $M$ according to the Alice table. An independent uniform OT selection bit determines Bob's card $C$ via Figure 9. For each $A$, its two OT cases yield the two cards outside $A$, once each. Thus $(a,b,C,D)$ is uniform over all 24 permutations, where $D$ is the discarded card.
+
+In an ideal $(2,1;1)$ deal, Bob receives only $C$. In the real protocol he also sees $M$. A necessary privacy condition is that this public component of his view can be simulated from $C$ alone, preserving its joint distribution with Alice's hand. In particular,
+$$
+ \Prb[A=a\mid C=c,M=m]=\Prb[A=a\mid C=c]
+$$
+whenever the conditioning event has positive probability. Failure for $(C,M)$ suffices: Bob's other view components need not be examined.
+\section{Six equiprobable cases}
+Condition on $C=0$. The following six Figure 9 cases each have conditional probability $1/6$:
+\begin{center}
+\begin{tabular}{cccc}
+\toprule Alice's ordered hand $A$ & Bob $C$ & Discard $D$ & Public $M$\\\midrule
+$(1,2)$ & 0 & 3 & $Y$\\
+$(1,3)$ & 0 & 2 & $X$\\
+$(2,1)$ & 0 & 3 & $X$\\
+$(2,3)$ & 0 & 1 & $Z$\\
+$(3,1)$ & 0 & 2 & $Z$\\
+$(3,2)$ & 0 & 1 & $Y$\\\bottomrule
+\end{tabular}
+\end{center}
+Before the message, Bob gives probability $1/6$ to $A=(1,3)$. Once he sees $M=X$, only $(1,3)$ and $(2,1)$ remain, each with probability $1/2$.
+\newpage
+\section{Exact leakage calculation}
+We obtain the strict inequality
+$$
+ \Prb[A=(1,3)\mid C=0]=\frac16
+ \ne \frac12=\Prb[A=(1,3)\mid C=0,M=X].
+$$
+The defect persists even if the order of Alice's cards is ignored. With $H=\{a,b\}$:
+\begin{center}
+\begin{tabular}{ccc}
+\toprule Alice's unordered hand $H$ & $\Prb[H\mid C=0]$ & $\Prb[H\mid C=0,M=X]$\\\midrule
+$\{1,2\}$ & $1/3$ & $1/2$\\
+$\{1,3\}$ & $1/3$ & $1/2$\\
+$\{2,3\}$ & $1/3$ & $0$\\\bottomrule
+\end{tabular}
+\end{center}
+In particular, Bob rules out the previously possible hand $\{2,3\}$. A simulator given only $C$ cannot reproduce this extra correlation with Alice's hand.
+\section{The checked Lean counterexample}
+Let $E$ denote $A=(1,3)$, $F$ denote $C=0$, and $G$ denote $M=X$. Among the 24 shuffles,
+$$
+ |E\cap F\cap G|=1,\qquad |F|=6,\qquad
+ |E\cap F|=1,\qquad |F\cap G|=2.
+$$
+Conditional independence would require
+$$
+ |E\cap F\cap G|\,|F|=|E\cap F|\,|F\cap G|.
+$$
+Instead, the two sides are $6$ and $2$. The declaration
+\begin{center}
+\texttt{Cslib.Crypto.Tetrahedral.reverse\_message\_leakage}
+\end{center}
+checks precisely this division-free inequality, using \texttt{by decide} to enumerate the finite cases. Separate checked declarations establish that the enumerator consists of exactly the 24 distinct permutations. The message encoding is $X=0$, $Y=1$, $Z=2$.
+\section{Faulty inference and scope}
+The proof of Theorem 5.1 argues from $M$ being determined by Alice's hand to privacy. Determinism given Alice's hand does not imply independence from that hand given Bob's card. Checking a joint probability only for a message consistent with a fixed hand does not prove the required conditional independence; incompatible hands are exactly what the observed message excludes.
+
+The counterexample contradicts perfect semi-honest privacy for this reverse protocol. It does not refute its dealt-output distribution, the forward protocol's checked correctness/privacy, or the existence of a different secure reverse construction. It is not a claim that the entire paper is false.
+\section*{Sources and reproducibility}
+\small
+Primary source: manuscript PDF page 5, Figures 9--10 and Theorem 5.1 (linked on page 1). Protocol tables are also Figures 2--3. The \href{https://github.com/cslib-community/complexitylib/blob/4d578733628a41dfc7f550f80725960b87de3c4a/Complexity/Crypto/Multiparty/TetrahedralYield.lean#L106}{immutable Lean proof} is in \texttt{TetrahedralYield.lean}, lines 106--116, in \href{https://github.com/cslib-community/complexitylib/pull/2529}{Complexitylib PR 2529}.
+
+Revision: \texttt{4d578733628a41dfc7f550f80725960b87de3c4a}.
+
+Kernel checking establishes the counting inequality; correspondence to the manuscript additionally uses the explicit table mapping above. AI-assisted technical note; copyright 2026 Christian Reitwiessner, Apache-2.0.
+\end{document}
