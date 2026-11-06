@@ -116,11 +116,11 @@
     {
       "id": 733,
       "coverage": "partial",
-      "scope": "Earlier correlation/spectrum/hardness/counting results; native dictionary, bucket scan, executable streaming iterator prefix memory and hit-node/index/state/payload provenance independently reviewed.",
-      "remaining": "General class termination/time, original-chain returned-witness correctness, global computed-balance bounds and source bit-model realization remain open.",
+      "scope": "Earlier correlation/spectrum/hardness/counting and native components; restricted original-input pipeline clients and general backward-quarter preparation independently reviewed.",
+      "remaining": "General backward-construction/dictionary/probe linkage, class termination/time, global computed-balance resources and source bit-model realization remain open.",
       "pr": 2529,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2529#issuecomment-6684488530",
-      "reviewed_sha": "21146285d004a0df150c0c848a0b1d96d047e304",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2529#issuecomment-6685166070",
+      "reviewed_sha": "c89a235c84ad8dfc08ea0bc62abcea964ac771c6",
       "source_prefixes": [
         "Complexity/Cryptanalysis/AddXNOR",
         "Complexity/DataStructure/BinaryTrie.lean",
@@ -131,11 +131,11 @@
     {
       "id": 191,
       "coverage": "partial",
-      "scope": "Policy–LP, FPTAS, Theorem 3, greedy risk comparison and exact rational threshold; joint finite greedy success, token-billing and parallel-deadline guarantee independently reviewed. Theorem 5 conditional-history lower-cost accounting reviewed; full adaptive theorem incomplete.",
-      "remaining": "Theorem 4 native binary runtime, asymptotic corollaries and hardness, plus Theorems 5–6 remain open. Full hosted validation required.",
+      "scope": "Policy–LP/FPTAS/Theorem 3 and partial Theorem 4; history-conditional retained-set/binomial bridge, stopped reach bounds and response-dependent expected-cost sums independently reviewed.",
+      "remaining": "Negative-binomial mean, remaining Theorem 5 resource/universal-policy results, Theorem 4 native runtime/asymptotics/hardness and Theorem 6 remain open.",
       "pr": 2530,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#issuecomment-6684491200",
-      "reviewed_sha": "a29fb6f71b1f3883d399df820b27af8e38ee8815",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#issuecomment-6685193581",
+      "reviewed_sha": "c186dc7bfe6a86e170d427d9c1bce18bb0a63e0e",
       "source_prefixes": [
         "Complexity/Probability/StochasticOracle/",
         "Complexity/Algorithms/Lean/Submodular/OracleSavings.lean",
@@ -174,11 +174,11 @@
     {
       "id": 1575,
       "coverage": "partial",
-      "scope": "Counting reduction, VC-one representation, closure listing, functional query assembly and square/rectangular binary solvers with computed rank and coefficient bounds independently reviewed. Binary solver integrated with signed-system and overlapping-table counting plans; exact count and query budgets reviewed. Explicit framed table/plan encodings, equation payloads and VC-one promised frontier bounds reviewed.",
-      "remaining": "Full closure/equation/branch/two-query runtime composition, sharper counting runtime and bounded-demand/graph endpoints remain incomplete.",
+      "scope": "Earlier counting/VC-one/solver/encoding stages; weighted-row CNF/DNF, normalization with assignment/count preservation, global clause deduplication and polynomial clause bound independently reviewed.",
+      "remaining": "Capped-rank and all-direct-case bounded-demand reduction assembly, executable enumeration/runtime, whole table-to-plan time/space and graph/counting endpoints remain open.",
       "pr": 2532,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#issuecomment-6684372953",
-      "reviewed_sha": "31ba7d1496cdde1b91f058afcddc01333b9fe10a",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#issuecomment-6685302471",
+      "reviewed_sha": "5751da6ac7c4e8722c9aa34a89b1482a0468c823",
       "source_prefixes": [
         "Complexity/Logics/Propositional/CNF/TwoBoundary.lean",
         "Complexity/Foundations/LinearAlgebra/RowSelection.lean",
