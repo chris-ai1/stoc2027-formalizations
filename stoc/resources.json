@@ -84,6 +84,28 @@
       "total_tokens": null,
       "source": "Delegated task metadata captured by coordinator; task wall time only, not total paper effort.",
       "task_id": "ffb9d8ee-40da-4a1b-b66c-7510918775d5"
+    },
+    {
+      "paper_id": 1575,
+      "label": "Executable closure listing",
+      "started_at": "2026-11-06T09:33:18.222Z",
+      "finished_at": "2026-11-06T09:55:48.471Z",
+      "input_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "source": "Delegated task metadata captured by coordinator; task wall time only, not total paper effort.",
+      "task_id": "3a2353c5-0928-4781-990b-15de66d1c7de"
+    },
+    {
+      "paper_id": 191,
+      "label": "Theorem 3 hardness and pseudopolynomial optimization",
+      "started_at": "2026-11-06T09:38:41.358Z",
+      "finished_at": "2026-11-06T10:18:53.366Z",
+      "input_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "source": "Delegated task metadata captured by coordinator; task wall time only, not total paper effort.",
+      "task_id": "9627fe54-5e12-4245-a81d-c05ddb1740a2"
     }
   ]
 }
