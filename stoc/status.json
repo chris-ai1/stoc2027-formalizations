@@ -1,0 +1,190 @@
+{
+  "schema_version": 1,
+  "updated": "2026-11-06",
+  "papers": [
+    {
+      "id": 296,
+      "coverage": "main-results",
+      "scope": "Theorems 1 and 2, including every real approximation parameter above two thirds.",
+      "remaining": "No claim that every ancillary statement is formalized.",
+      "pr": 2525,
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2525#issuecomment-6660054863",
+      "reviewed_sha": "f0d1e11ac633031d26620bf71499345a51aa0f9a",
+      "source_prefixes": [
+        "Complexity/GameTheory/FairDivision/EFX"
+      ]
+    },
+    {
+      "id": 886,
+      "coverage": "main-results",
+      "scope": "Two-party separation; arbitrary-party threshold constructions and sharp extraction bounds.",
+      "remaining": "Field-operation endpoint; no bit-runtime guarantee for noncomputable encodings.",
+      "pr": 2525,
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2525#issuecomment-6660054863",
+      "reviewed_sha": "f0d1e11ac633031d26620bf71499345a51aa0f9a",
+      "source_prefixes": [
+        "Complexity/Crypto/Protocols/SecretSharing/ImperfectRandomness"
+      ]
+    },
+    {
+      "id": 1278,
+      "coverage": "main-results",
+      "scope": "Theorem 1.2 and Corollary 1.3 with actual containing couplings.",
+      "remaining": "Bounded source scope; no claim about every ancillary result.",
+      "pr": 2525,
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2525#issuecomment-6660054863",
+      "reviewed_sha": "f0d1e11ac633031d26620bf71499345a51aa0f9a",
+      "source_prefixes": [
+        "Complexity/Probability/Thinning.lean",
+        "Complexity/Probability/PMF/MonotoneCoupling.lean",
+        "Complexity/Foundations/BooleanAnalysis/BernoulliPMF.lean"
+      ]
+    },
+    {
+      "id": 115,
+      "coverage": "main-results",
+      "scope": "Theorems 1–4: constant and asymptotic goods/chores impossibility, codes and logarithmic item budget.",
+      "remaining": "Adjusted constants for weaker code distance. Feige positive direction and Hummel minimality remain external.",
+      "pr": 2529,
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2529#pullrequestreview-5793881114",
+      "reviewed_sha": "df5c1e6dac5d6cf4493239e6e69d1bf4ce7dc307",
+      "source_prefixes": [
+        "Complexity/GameTheory/FairDivision/MMS",
+        "Complexity/GameTheory/FairDivision/MaximinShare.lean",
+        "Complexity/Foundations/Data/Code/HammingBallBounds.lean"
+      ]
+    },
+    {
+      "id": 152,
+      "coverage": "main-results",
+      "scope": "DPI collapse, determinantal rigidity, sharp degree/sample/task bounds and payment bridges.",
+      "remaining": "Ports Yuqing Kong’s author formalization with attribution. Appendix C extensions and Appendix D computational hardness remain unproved.",
+      "pr": 2530,
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#issuecomment-6672922586",
+      "reviewed_sha": "762e372031946f77e92bc5cea740dd12b1954f64",
+      "source_prefixes": [
+        "Complexity/Probability/FiniteSampleInformation/",
+        "Complexity/Foundations/Algebra/Polynomial/MaximalMinor/"
+      ]
+    },
+    {
+      "id": 587,
+      "coverage": "main-results",
+      "scope": "Covariance, sharp information and regret bounds, measurable-context nonidentifiability and auditing Theorems 5.3–5.5.",
+      "remaining": "Ancillary refinements and numerical illustrations excluded.",
+      "pr": 2530,
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#issuecomment-6674624021",
+      "reviewed_sha": "2add8f74e6ef85075a7d64c08412db14fb31a13e",
+      "source_prefixes": [
+        "Complexity/Probability/AdaptivePolicy/",
+        "Complexity/Probability/ImportanceSampling.lean",
+        "Complexity/Probability/MedianOfMeans.lean",
+        "Complexity/Probability/ProductDivergence.lean",
+        "Complexity/Probability/Testing.lean"
+      ]
+    },
+    {
+      "id": 1056,
+      "coverage": "partial",
+      "scope": "Quarter-QCD counterexample.",
+      "remaining": "Main continuous mechanism verification/reduction framework and other advertised results remain open.",
+      "pr": 2532,
+      "review_url": "https://github.com/cslib-community/complexitylib/issues/2527#issuecomment-6672003256",
+      "reviewed_sha": "b9c3e7a04c70b85ee21f169cebe19200ceb0df8e",
+      "source_prefixes": [
+        "Complexity/GameTheory/FacilityLocation/QuarterQCD.lean"
+      ]
+    },
+    {
+      "id": 1326,
+      "coverage": "partial",
+      "scope": "General rounding/stability, fixed-effects correctness/resources, geometry, hardness and affine conversion; conditional exact-output bridge.",
+      "remaining": "General exact-output construction/runtime and empirical certificates remain open. Supplied PDF/release has no usable promised archive.",
+      "pr": 2777,
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2777#pullrequestreview-5797386037",
+      "reviewed_sha": "687e498c53e219ded9f1eeec8baf282f8642edea",
+      "source_prefixes": [
+        "Complexity/Statistics/LeastSquares/",
+        "Complexity/Foundations/Optimization/FiniteMinPlus",
+        "Complexity/Foundations/LinearAlgebra/Box.lean",
+        "Complexity/Foundations/LinearAlgebra/Hypersimplex.lean",
+        "Complexity/Foundations/LinearAlgebra/Matrix/Gram.lean",
+        "Complexity/Foundations/LinearAlgebra/Matrix/RankOne.lean",
+        "Complexity/Computability/Complexity/Problems/RegressionEquality.lean"
+      ]
+    },
+    {
+      "id": 733,
+      "coverage": "partial",
+      "scope": "Correlation, spectrum, hardness, counting, streaming dissection correctness and native forward preprocessing.",
+      "remaining": "Integrated dissection native runtime/space, other resource refinements and repaired ideal-model bounds remain open. Two source errors are checked; neither refutes Theorem 8.",
+      "pr": 2529,
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2529#pullrequestreview-5797774156",
+      "reviewed_sha": "4e38d046df851d9ecc11dd5c3887060950acc69f",
+      "source_prefixes": [
+        "Complexity/Cryptanalysis/AddXNOR",
+        "Complexity/DataStructure/BinaryTrie.lean",
+        "Complexity/DataStructure/BinaryTrie/",
+        "Complexity/Computability/WordRAM/TraceBounds.lean"
+      ]
+    },
+    {
+      "id": 191,
+      "coverage": "partial",
+      "scope": "Policy–LP frontier, two-schedule optimum, Proposition 1, global savings approximation and native component certificates.",
+      "remaining": "Uniform binary-runtime composition for full FPTAS and Theorems 3–6 remain open.",
+      "pr": 2530,
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#pullrequestreview-5797531448",
+      "reviewed_sha": "e500e96a0e311b7de13db140e7d533f459c769ea",
+      "source_prefixes": [
+        "Complexity/Probability/StochasticOracle/",
+        "Complexity/Algorithms/Lean/Submodular/OracleSavings.lean",
+        "Complexity/Algorithms/Lean/DynamicProgramming/MinProduct.lean",
+        "Complexity/Algorithms/Lean/DynamicProgramming/RoundedProduct.lean",
+        "Complexity/Foundations/Optimization/OneConstraint.lean",
+        "Complexity/Foundations/Optimization/RationalOneConstraint.lean",
+        "Complexity/Languages/Probabilistic/RationalCoin.lean",
+        "Complexity/Probability/FiniteTable.lean"
+      ]
+    },
+    {
+      "id": 1234,
+      "coverage": "obstruction",
+      "scope": "Forward random OT correctness/privacy, chosen-input bridge and yield bounds; checked reverse-privacy obstruction.",
+      "remaining": "Theorem 5.1’s reverse protocol leaks Alice’s hand through its public message. This refutes that protocol’s privacy claim, not all possible reverse constructions.",
+      "pr": 2529,
+      "review_url": "https://github.com/cslib-community/complexitylib/issues/2527#issuecomment-6672003256",
+      "reviewed_sha": "725a6add77cee9de22f70b51077197e88636132c",
+      "source_prefixes": [
+        "Complexity/Crypto/Multiparty/Tetrahedral"
+      ]
+    },
+    {
+      "id": 1425,
+      "coverage": "partial",
+      "scope": "Exact graph-selector minimax profiles.",
+      "remaining": "Statistical chain characterization, geometry and weak/strong agreement/confidence headlines remain open.",
+      "pr": 2536,
+      "review_url": "https://github.com/cslib-community/complexitylib/issues/2527#issuecomment-6672003256",
+      "reviewed_sha": "f8a23b4badba975fa76ae0e670974ae2d9539a19",
+      "source_prefixes": [
+        "Complexity/Probability/ReplicableDecisions/"
+      ]
+    },
+    {
+      "id": 1575,
+      "coverage": "partial",
+      "scope": "Rank-derived signed 3-CNF counting reduction; table-derived VC-one representation and global query budget for overlapping scopes (latest VC delta awaiting review).",
+      "remaining": "Polynomial closure listing/rank implementation, sharper runtime, and bounded-demand/graph endpoints remain open.",
+      "pr": 2532,
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#pullrequestreview-5797724615",
+      "reviewed_sha": "d7ff8084affabf279538533b3015b00478c31f3b",
+      "source_prefixes": [
+        "Complexity/Logics/Propositional/CNF/TwoBoundary.lean",
+        "Complexity/Foundations/LinearAlgebra/RowSelection.lean",
+        "Complexity/Logics/Propositional/CNF/Rank",
+        "Complexity/Combinatorics/ExactCover"
+      ]
+    }
+  ]
+}

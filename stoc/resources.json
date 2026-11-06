@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "time_semantics": "Sum of recorded task elapsed times; parallel tasks overlap. Partial history, not total project effort or CPU time.",
+  "token_semantics": "Measured provider token counts only. Missing measurements are unknown, never zero.",
+  "project_budget": {
+    "time_hours": null,
+    "tokens": null
+  },
+  "paper_budgets": {},
+  "measurements": [
+    {
+      "paper_id": 1326,
+      "label": "Affine-target conversion",
+      "started_at": "2026-11-06T07:20:15.785Z",
+      "finished_at": "2026-11-06T07:41:55.355Z",
+      "input_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "source": "Delegated task metadata captured by coordinator; task wall time only, not total paper effort.",
+      "task_id": "774ba208-ec67-461f-9d56-79eb3704c88a"
+    },
+    {
+      "paper_id": 733,
+      "label": "Native WordRAM decision",
+      "started_at": "2026-11-06T07:20:15.425Z",
+      "finished_at": "2026-11-06T07:49:39.439Z",
+      "input_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "source": "Delegated task metadata captured by coordinator; task wall time only, not total paper effort.",
+      "task_id": "c075cacd-18d3-4649-ad7f-c33b58be966d"
+    },
+    {
+      "paper_id": 191,
+      "label": "Global approximation and binary component certificates",
+      "started_at": "2026-11-06T07:20:15.578Z",
+      "finished_at": "2026-11-06T08:17:36.758Z",
+      "input_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "source": "Delegated task metadata captured by coordinator; task wall time only, not total paper effort.",
+      "task_id": "fe610019-c1fa-4db5-a971-283b5dc7058a"
+    },
+    {
+      "paper_id": 1326,
+      "label": "Conditional exact-output bridge",
+      "started_at": "2026-11-06T07:46:01.591Z",
+      "finished_at": "2026-11-06T08:03:25.307Z",
+      "input_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "source": "Delegated task metadata captured by coordinator; task wall time only, not total paper effort.",
+      "task_id": "370270d1-7c54-4763-8185-a3357636fd5f"
+    },
+    {
+      "paper_id": 733,
+      "label": "Streaming dissection correctness",
+      "started_at": "2026-11-06T07:54:01.541Z",
+      "finished_at": "2026-11-06T08:26:43.390Z",
+      "input_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "source": "Delegated task metadata captured by coordinator; task wall time only, not total paper effort.",
+      "task_id": "03d2f4b5-77d6-4b64-8a24-9a5e4f20be25"
+    },
+    {
+      "paper_id": 733,
+      "label": "Forward native preprocessing",
+      "started_at": "2026-11-06T08:30:57.052Z",
+      "finished_at": "2026-11-06T08:44:20.499Z",
+      "input_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "source": "Delegated task metadata captured by coordinator; task wall time only, not total paper effort.",
+      "task_id": "c0706b8c-0ad3-4c3e-9d7b-39a348ea9efb"
+    },
+    {
+      "paper_id": 1575,
+      "label": "Rank-derived counting reduction",
+      "started_at": "2026-11-06T08:07:24.272Z",
+      "finished_at": "2026-11-06T08:39:14.068Z",
+      "input_tokens": null,
+      "output_tokens": null,
+      "total_tokens": null,
+      "source": "Delegated task metadata captured by coordinator; task wall time only, not total paper effort.",
+      "task_id": "ffb9d8ee-40da-4a1b-b66c-7510918775d5"
+    }
+  ]
+}
