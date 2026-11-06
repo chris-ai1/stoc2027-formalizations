@@ -116,11 +116,11 @@
     {
       "id": 733,
       "coverage": "partial",
-      "scope": "Correlation, spectrum, hardness, counting, streaming dissection correctness and native forward preprocessing.",
-      "remaining": "Integrated dissection native runtime/space, other resource refinements and repaired ideal-model bounds remain open. Two source errors are checked; neither refutes Theorem 8.",
+      "scope": "Correlation, spectrum, hardness, counting, streaming dissection correctness, native decision and original-input projection/forward/backward counter preprocessing.",
+      "remaining": "Native quarter enumeration, dictionary allocation/lifetimes, computed-balance traversal and integrated dissection time/peak-space remain open, alongside other resource refinements and repaired ideal-model bounds. Checked source errors do not refute Theorem 8.",
       "pr": 2529,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2529#pullrequestreview-5797774156",
-      "reviewed_sha": "4e38d046df851d9ecc11dd5c3887060950acc69f",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2529#pullrequestreview-5798251950",
+      "reviewed_sha": "0cff08a2a64efc9cf5e87507a68f0c8985dcbd81",
       "source_prefixes": [
         "Complexity/Cryptanalysis/AddXNOR",
         "Complexity/DataStructure/BinaryTrie.lean",
