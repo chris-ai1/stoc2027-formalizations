@@ -131,11 +131,11 @@
     {
       "id": 191,
       "coverage": "partial",
-      "scope": "Policy–LP frontier, two-schedule optimum, Proposition 1, binary-input FPTAS, and Theorem 3 randomized-policy hardness and native pseudopolynomial optimization independently reviewed.",
-      "remaining": "Theorems 4–6 (partial-cover, adaptive bounds and adaptivity ratio) remain open. Full hosted validation remains required.",
+      "scope": "Policy–LP frontier, two-schedule optimum, Proposition 1, binary-input FPTAS and Theorem 3 independently reviewed; partial Theorem 4 local dual certificates, conditional-risk bounds and repetition thresholds reviewed.",
+      "remaining": "Theorem 4 greedy approximation, resource and hardness claims, plus Theorems 5–6, remain open. Full hosted validation remains required.",
       "pr": 2530,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#pullrequestreview-5798827354",
-      "reviewed_sha": "3206d7b054681625cd4f5a44a9a13e4a41c87d41",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#issuecomment-6683140662",
+      "reviewed_sha": "4bd2d1e4a91cbf7d4334872fae740dcc9c0b1f03",
       "source_prefixes": [
         "Complexity/Probability/StochasticOracle/",
         "Complexity/Algorithms/Lean/Submodular/OracleSavings.lean",
