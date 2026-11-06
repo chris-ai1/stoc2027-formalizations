@@ -116,11 +116,11 @@
     {
       "id": 733,
       "coverage": "partial",
-      "scope": "Earlier correlation/spectrum/hardness/counting and native components; restricted original-input pipeline clients and general backward-quarter preparation independently reviewed.",
-      "remaining": "General backward-construction/dictionary/probe linkage, class termination/time, global computed-balance resources and source bit-model realization remain open.",
+      "scope": "Earlier mathematical/native stages; bounded backward preparation-to-retention, charged opposite-query execution and inverse-bucket preservation independently reviewed.",
+      "remaining": "Full consecutive construction/query/probe/reconstruction, class termination and global resource/source bit-model guarantees remain open.",
       "pr": 2529,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2529#issuecomment-6685166070",
-      "reviewed_sha": "c89a235c84ad8dfc08ea0bc62abcea964ac771c6",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2529#pullrequestreview-5800582786",
+      "reviewed_sha": "9de3e449a94cc1856489c7c20c3b47d856c02550",
       "source_prefixes": [
         "Complexity/Cryptanalysis/AddXNOR",
         "Complexity/DataStructure/BinaryTrie.lean",
@@ -131,11 +131,11 @@
     {
       "id": 191,
       "coverage": "partial",
-      "scope": "Policy–LP/FPTAS/Theorem 3 and partial Theorem 4; history-conditional retained-set/binomial bridge, stopped reach bounds and response-dependent expected-cost sums independently reviewed.",
-      "remaining": "Negative-binomial mean, remaining Theorem 5 resource/universal-policy results, Theorem 4 native runtime/asymptotics/hardness and Theorem 6 remain open.",
+      "scope": "Earlier policy–LP/FPTAS/Theorem 3 and partial Theorem 4; retained-set/binomial/stopped-cost results, tail-series mean r/p, finite bill bound and infinite response-process construction independently reviewed.",
+      "remaining": "Infinite-execution termination/integrability and remaining Theorem 5 latency/universal-policy endpoints, Theorem 4 resources/hardness and Theorem 6 remain open.",
       "pr": 2530,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#issuecomment-6685193581",
-      "reviewed_sha": "c186dc7bfe6a86e170d427d9c1bce18bb0a63e0e",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2530#pullrequestreview-5800525297",
+      "reviewed_sha": "fcc58aaf6399b5eeb4d4bd1cc6ed7ef85a6be253",
       "source_prefixes": [
         "Complexity/Probability/StochasticOracle/",
         "Complexity/Algorithms/Lean/Submodular/OracleSavings.lean",
@@ -174,11 +174,11 @@
     {
       "id": 1575,
       "coverage": "partial",
-      "scope": "Earlier counting/VC-one/solver/encoding stages; weighted-row CNF/DNF, normalization with assignment/count preservation, global clause deduplication and polynomial clause bound independently reviewed.",
+      "scope": "Earlier counting/VC-one/solver/encoding stages; weighted-row CNF/DNF, normalization with assignment/count preservation, global clause deduplication and polynomial clause bound independently reviewed. Capped affine-row equivalence and computed original-row selection reviewed.",
       "remaining": "Capped-rank and all-direct-case bounded-demand reduction assembly, executable enumeration/runtime, whole table-to-plan time/space and graph/counting endpoints remain open.",
       "pr": 2532,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#issuecomment-6685302471",
-      "reviewed_sha": "5751da6ac7c4e8722c9aa34a89b1482a0468c823",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#issuecomment-6685703385",
+      "reviewed_sha": "f2503c2dc85dd97f1761bd0aae954e0e7445d638",
       "source_prefixes": [
         "Complexity/Logics/Propositional/CNF/TwoBoundary.lean",
         "Complexity/Foundations/LinearAlgebra/RowSelection.lean",
