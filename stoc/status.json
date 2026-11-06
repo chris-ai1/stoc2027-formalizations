@@ -174,11 +174,11 @@
     {
       "id": 1575,
       "coverage": "partial",
-      "scope": "Rank-derived signed 3-CNF counting reduction; table-derived VC-one representation and global query budget for overlapping scopes (latest VC delta awaiting review).",
+      "scope": "Rank-derived signed 3-CNF counting reduction; table-derived VC-one representation, sharp equation bound and global two-query budget for arbitrary overlapping scopes.",
       "remaining": "Polynomial closure listing/rank implementation, sharper runtime, and bounded-demand/graph endpoints remain open.",
       "pr": 2532,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#pullrequestreview-5797724615",
-      "reviewed_sha": "d7ff8084affabf279538533b3015b00478c31f3b",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#pullrequestreview-5798255445",
+      "reviewed_sha": "2f16be5476ed391b59dd162e82c4142ac8e76958",
       "source_prefixes": [
         "Complexity/Logics/Propositional/CNF/TwoBoundary.lean",
         "Complexity/Foundations/LinearAlgebra/RowSelection.lean",
