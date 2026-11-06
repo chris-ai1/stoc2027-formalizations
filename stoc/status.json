@@ -174,11 +174,11 @@
     {
       "id": 1575,
       "coverage": "partial",
-      "scope": "Rank-derived signed 3-CNF counting reduction, VC-one representation and two-query budget; executable closure listing with proved frontier and candidate bounds.",
-      "remaining": "Encoded elimination, coefficient-growth bounds, executable branch/query assembly, sharper runtime and bounded-demand/graph endpoints remain open.",
+      "scope": "Rank-derived counting reduction, VC-one representation, executable closure listing, functional elimination and two-query assembly independently reviewed.",
+      "remaining": "Encoded polynomial-time certification, coefficient-growth bounds, sharper runtime and bounded-demand/graph endpoints remain open. Functional correctness does not establish these resource claims.",
       "pr": 2532,
-      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#pullrequestreview-5798540034",
-      "reviewed_sha": "2cf195f022036d72e5f0a96188df3ddf5ee452ca",
+      "review_url": "https://github.com/cslib-community/complexitylib/pull/2532#pullrequestreview-5799015394",
+      "reviewed_sha": "72a62b73200c427f56dd93a306243946a62a4184",
       "source_prefixes": [
         "Complexity/Logics/Propositional/CNF/TwoBoundary.lean",
         "Complexity/Foundations/LinearAlgebra/RowSelection.lean",
