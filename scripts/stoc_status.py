@@ -178,6 +178,7 @@ def build(output, live=False):
     output.mkdir(parents=True, exist_ok=True)
     for name in ['index.html', 'style.css', 'app.js']:
         shutil.copyfile(ROOT / 'stoc' / name, output / name)
+    shutil.copytree(ROOT / 'stoc/writeups', output / 'writeups', dirs_exist_ok=True)
     (output / 'data.json').write_text(json.dumps(data, ensure_ascii=False) + '\n')
     print(f'Built {len(papers)} submissions ({len(tracked)} tracked) in {output}')
     return data

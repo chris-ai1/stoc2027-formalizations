@@ -75,3 +75,7 @@ Copyright (c) 2026 Christian Reitwiessner. Apache-2.0.
 Submission titles/authors and primary papers retain their original attribution. Kong's existing
 formalization is explicitly distinguished from newly developed proofs. This dashboard is a catalogue
 and evidence index; the linked Lean sources, primary papers and review records are authoritative.
+
+## Counterexample note
+
+`stoc/writeups/submission-1234-counterexample.pdf` documents the reverse-protocol privacy counterexample with exact tables, probabilities and an immutable Lean theorem link. Regenerate with `python3 scripts/build_counterexample_pdf.py` after installing ReportLab (`reportlab==5.1.0`). The checked-in PDF is copied into the published site; ordinary dashboard builds need no PDF dependency.
